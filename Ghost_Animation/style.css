@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #330235;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transform: scale(0.5, 0.5);
+}
+
+.ghost {
+    position: relative;
+    margin-top: -30vmin;
+    background: white;
+    color: white;
+    height: 25vmin;
+    width: 28vmin;
+    border-radius: 50%;
+    box-shadow:
+        1vmin 0 2vmin,
+        -1vmin 0 2vmin,
+        1vmin -1vmin 1vmin,
+        -1vmin -1vmin 1vmin;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    animation: float 2s ease-in-out infinite;
+}
+
+
+
+.ghost::before {
+    content: '';
+    position: absolute;
+    background: white;
+    color: white;
+    height: 25vmin;
+    width: 28vmin;
+    top: 14vmin;
+    box-shadow:
+        1vmin 0 2vmin,
+        -1vmin 0 2vmin,
+        1vmin -1vmin 1vmin,
+        -1vmin -1vmin 1vmin;
+}
+
+.face {
+    position: relative;
+    background: black;
+    height: 3vmin;
+    width: 3vmin;
+    border-radius: 50%;
+    box-shadow: -1vmin 1vmin pink;
+    left: -1vmin;
+}
+
+.face::before {
+    position: absolute;
+    content: '';
+    background: black;
+    height: 3vmin;
+    width: 3vmin;
+    border-radius: 50%;
+    box-shadow: 1vmin 1vmin pink;
+    left: 10vmin;
+}
+
+.face::after {
+    position: absolute;
+    content: '';
+    background: black;
+    height: 3vmin;
+    width: 3vmin;
+    border-radius: 50%;
+    left: 5vmin;
+    top: 2.5vmin;
+    box-shadow: 0 0.5vmin 0.5vmin black, 0 -0.5vmin 0.5vmin black;
+}
+
+.bottom {
+    position: relative;
+    width: 6vmin;
+    top: 28vmin;
+    left: -10vmin;
+}
+
+/* Adding extra circles for a fluffy effect */
+.circle {
+    position: absolute;
+    background: white;
+    height: 6vmin;
+    width: 6vmin;
+    border-radius: 50%;
+    box-shadow:
+    1vmin 0 2vmin,
+    -1vmin 0 2vmin,
+    1vmin -1vmin 1vmin,
+    -1vmin -1vmin 1vmin;
+}
+
+/* Position each circle for a frilly look */
+.circle-1 { left: -3vmin; top: -3vmin; }
+.circle-2 { left: 3vmin; top: -2vmin; }
+.circle-3 { left: 9vmin; top: -1vmin; }
+.circle-4 { left: 14vmin; top: -2vmin; }
+.circle-5 { left: 20vmin; top: -3vmin; }
+
+@keyframes float {
+    0% {
+        transform: translateY(1vmin);
+    }
+    50% {
+        transform: translateY(3vmin);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(1vmin);
+    }
+}
+
+
+
+
