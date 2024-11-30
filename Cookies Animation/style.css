@@ -1,0 +1,186 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff8db;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Container for Cookies */
+.cookie-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.cookie-popup {
+  position: absolute;
+  animation: fall 2s ease-out forwards; /* Falling animation */
+}
+
+.cookie {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  background-color: #d2a679;
+  border-radius: 60% 40% 50% 50%;
+  border: 2px solid #5c3816; 
+  box-shadow: 
+    inset -15px -15px 15px rgba(0, 0, 0, 0.2), 
+    15px 15px 30px rgba(0, 0, 0, 0.4),        
+    0px 10px 10px rgba(0, 0, 0, 0.2);          
+  overflow: hidden;
+  background: linear-gradient(135deg, #d2a679 25%, #a67547 75%); 
+  z-index: 10; 
+}
+
+
+/* First Cookie */
+.cookie1 {
+  left: 45%;
+  animation-delay: 0s;
+  visibility: hidden;
+
+}
+
+/* Second Cookie */
+.cookie2 {
+  left: 52%; 
+  animation-delay: 2s;
+  visibility: hidden; 
+  
+}
+
+
+/* Chocolate Chips */
+.choc-chip {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #3e2723;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); 
+  clip-path: polygon(60% 10%, 80% 40%, 50% 80%, 20% 60%, 10% 40%); /* Irregular arbitrary shape */
+  z-index: 15;
+}
+
+.chip1 { top: 20%; left: 40%; }
+.chip2 { top: 60%; left: 20%; }
+.chip3 { top: 30%; left: 70%; }
+.chip4 { top: 75%; left: 56%; }
+
+
+
+/* Small Chocolate Dots */
+.choc-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #3e2723;
+  border-radius: 50%; 
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+  z-index: 15;
+}
+
+/* Positioning the dots */
+.dot1 { top: 20%; left: 20%; }
+.dot2 { top: 12%; left: 70%; }
+.dot3 { top: 50%; left: 10%; }
+.dot4 { top: 80%; left: 34%; }
+.dot5 { top: 62%; left: 65%; }
+.dot6 { top: 50%; left: 40%; }
+
+.heading-popup {
+  position: absolute;
+  top: 65%;
+  left: 52%;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif; 
+  color: #5a3b1e; /* Cookie color */
+  animation: popup 1.5s ease-out forwards; /* Smooth pop-up animation */
+  animation-delay: 4s; /* Start after cookies finish falling */
+  z-index: 20; 
+}
+
+.heading-popup h1 {
+  font-size: 3rem; 
+  letter-spacing: 2px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); 
+}
+
+/* Chocolate Chip Styling */
+.choco-chip {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #3e2723; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+  clip-path: polygon(60% 10%, 80% 40%, 50% 80%, 20% 60%, 10% 40%); /* Irregular chip shape */
+}
+
+.chip-left {
+  top: -50px; 
+  left: -60px;
+}
+
+.chip-right {
+  top: -50px; 
+  right: -60px;
+}
+
+
+.heading-popup {
+    transform: translate(-50%, -50%) scale(0); /* Hidden initially with scale */
+}
+
+
+/* Falling Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-150%); 
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(calc(50vh - 50px)); 
+    visibility: visible; /* Stay visible after reaching the final position */
+  }
+}
+
+/* Animation for Cookie 2 to Fall */
+@keyframes fallCookie2 {
+  0% {
+    transform: translateY(-150%); 
+    visibility: hidden; /* Initially invisible */
+  }
+  50% {
+    visibility: visible; /* Make Cookie 2 visible */
+  }
+  100% {
+    transform: translateY(calc(50vh - 50px)); /* Stop near the center */
+    visibility: visible; /* Stay visible after reaching the final position */
+  }
+}
+
+
+/* Pop-up Animation */
+@keyframes popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0); /* Start hidden */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1); /* Fully visible and scaled */
+    opacity: 1;
+  }
+}
+
